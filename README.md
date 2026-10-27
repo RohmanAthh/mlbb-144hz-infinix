@@ -1,4 +1,4 @@
-﻿# MLBB 144Hz for Infinix (XOS)
+# MLBB 144Hz for Infinix (XOS)
 
 Modul Xposed (LSPosed / LSPatch) yang membuka **144Hz di Mobile Legends: Bang Bang** pada HP Infinix ber-XOS yang layarnya 144Hz tapi dibatasi 120Hz oleh sistem.
 
@@ -19,15 +19,44 @@ Binder code `58` spesifik untuk build XOS di atas. Di ROM lain transaksi gagal s
 
 ## Instalasi (tanpa root, LSPatch)
 
-1. Install [Shizuku](https://github.com/RikkaApps/Shizuku) dan [LSPatch](https://github.com/LSPosed/LSPatch) (jika belum).
-2. Download `MLBB-144Hz-Infinix.apk` dari [Releases](../../releases) dan install.
-3. LSPatch → **Manage** → patch `com.mobile.legends` dengan mode **Local/manager**, centang modul **MLBB 144Hz Infinix**.
-4. Force stop MLBB, buka lagi. Di **Settings → Basic → Frame Rate** pilih tertinggi.
+> ⚠️ Patch MLBB mengganti tanda tangan APK, jadi MLBB asli harus di-uninstall. **Ikat akun (Moonton/Google/Facebook) dulu**, data game (~11 GB) akan diunduh ulang.
 
-Dengan LSPosed (root): aktifkan modul, scope `com.mobile.legends`, force stop MLBB.
+### 1. Aktifkan Developer Options & Wireless debugging
+1. **Setelan → Tentang ponsel** → ketuk **Nomor versi (Build number)** 7x.
+2. **Setelan → Sistem → Opsi pengembang** → aktifkan **Wireless debugging** (HP harus terhubung WiFi).
 
-> Jika sebelumnya memakai Game Unlocker lain yang men-spoof MLBB, nonaktifkan untuk MLBB agar tidak bentrok.
+### 2. Install & jalankan Shizuku
+1. Install [Shizuku](https://github.com/RikkaApps/Shizuku/releases) (atau dari Play Store).
+2. Buka Shizuku → **Pairing** → buka Wireless debugging → **Pasangkan dengan kode** → masukkan kode di notifikasi Shizuku.
+3. Shizuku → **Start**. Status harus *Shizuku is running*.
 
+### 3. Install LSPatch
+1. Download APK manager dari [LSPatch Releases](https://github.com/LSPosed/LSPatch/releases) dan install.
+2. Buka LSPatch, beri izin Shizuku saat diminta.
+
+### 4. Install modul
+1. Download `MLBB-144Hz-Infinix-vX.Y.Z.apk` dari [Releases](../../releases) dan install.
+
+### 5. Patch MLBB
+1. LSPatch → tab **Manage** → **+** → **Select apps installed** → pilih **Mobile Legends: Bang Bang**.
+2. Mode patch: **Local**. Biarkan opsi lain default → **Start Patch**.
+3. Setelah selesai → **Install**. Jika muncul konflik tanda tangan, setujui uninstall MLBB asli.
+
+### 6. Aktifkan modul untuk MLBB
+1. LSPatch → **Manage** → ketuk **Mobile Legends** → **Module scope**.
+2. Centang **MLBB 144Hz Infinix** (matikan Game Unlocker/modul spoof lain jika ada).
+
+### 7. Main
+1. Buka MLBB, login, unduh resource.
+2. **Settings → Basic → Frame Rate** → pilih tertinggi.
+
+Selesai. Shizuku **tidak perlu** dijalankan tiap main; cukup **LSPatch tetap terinstall** (mode Local membaca modul dari LSPatch).
+
+### Update MLBB
+Update Play Store gagal karena tanda tangan berbeda. Download APK MLBB versi baru (mis. dari APKMirror, split APK didukung LSPatch), lalu ulangi langkah 5. Tidak perlu uninstall lagi selama tanda tangan patch sama.
+
+### Root (LSPosed)
+Install modul → LSPosed → aktifkan modul → scope `com.mobile.legends` → force stop MLBB. Tanpa patch/uninstall.
 ## Verifikasi
 
 ```sh
