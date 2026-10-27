@@ -67,6 +67,13 @@ adb shell dumpsys SurfaceFlinger | grep -i "refresh"
 
 Catatan: XOS turun ke 60Hz saat layar diam (idle); sentuh layar untuk kembali 144Hz. Ini perilaku normal sistem.
 
+### Masih 120Hz?
+Cleaner/"hapus cache sistem" XOS bisa mereset batas refresh sistem ke 120. Cek & kembalikan:
+- **Setelan → Layar → Kecepatan refresh** → pilih **144Hz**/tertinggi, atau via ADB:
+```sh
+adb shell settings get system peak_refresh_rate   # harus 144.0
+adb shell settings put system peak_refresh_rate 144.0
+```
 ## Build dari source
 
 Butuh JDK 17+ dan Android SDK (build-tools 34+, `platforms;android-34`).
