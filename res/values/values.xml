@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MLBB 144Hz Infinix</string>
+    <string name="desc">Unlock 144Hz Mobile Legends on Infinix XOS + WiFi low-latency</string>
+    <string-array name="scope">
+        <item>com.mobile.legends</item>
+    </string-array>
+</resources>
