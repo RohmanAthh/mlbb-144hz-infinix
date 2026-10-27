@@ -72,8 +72,14 @@ Cleaner/"hapus cache sistem" XOS bisa mereset batas refresh sistem ke 120. Cek &
 - **Setelan → Layar → Kecepatan refresh** → pilih **144Hz**/tertinggi, atau via ADB:
 ```sh
 adb shell settings get system peak_refresh_rate   # harus 144.0
+adb shell settings put system tran_refresh_mode 144
+adb shell settings put system last_tran_refresh_mode_in_refresh_setting 144
 adb shell settings put system peak_refresh_rate 144.0
 ```
+`tran_refresh_mode` wajib 144 — XOS menulis ulang `peak_refresh_rate` dari nilai itu saat game dibuka.
+- Jangan pilih mode **Otomatis** (`tran_refresh_mode=10000`), itu membatasi 120.
+- MLBB crash "Failed to get manager binder" setelah cleaner? Buka app LSPatch dulu, lalu izinkan autostart/background LSPatch di Phone Master.
+
 ## Build dari source
 
 Butuh JDK 17+ dan Android SDK (build-tools 34+, `platforms;android-34`).
